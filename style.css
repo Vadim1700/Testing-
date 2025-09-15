@@ -87,32 +87,32 @@ body {
   background-color: #1a1a1a;
   border-radius: 10px;
   padding: 10px;
-  width: calc(50% - 8px); /* две карточки в ряд */
+  width: calc(50% - 8px);
   box-sizing: border-box;
   display: flex;
-  flex-direction: row; /* 👈 горизонтальное расположение */
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
   transition: transform 0.3s ease;
+  height: 220px; 
 }
-
 .game-card:hover {
   transform: scale(1.03);
 }
 
 .game-card img {
-  width: 80px; /* 👈 фиксированная ширина */
-  height: 80px;
+  width: 100%;
+  aspect-ratio: 4 / 3; /* 👈 одинаковые пропорции */
   object-fit: cover;
   border-radius: 8px;
-  flex-shrink: 0;
+  display: block;
 }
 
 .game-card h3 {
-  margin: 0;
+  margin: 8px 0 4px;
   font-size: 14px;
-  color: white;
+  text-align: center;
+  flex-grow: 1;
 }
 
 .play-button {
@@ -125,6 +125,7 @@ body {
   font-weight: bold;
   white-space: nowrap;
 }
+
 
 
 .play-button:hover {
