@@ -1,9 +1,11 @@
+/* Общие стили */
 body {
   margin: 0;
   padding: 0;
-  background-color: black;
-  font-family: sans-serif;
-  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #000;
+  color: #fff;
+  position: relative;
   overflow-x: hidden;
 }
 
@@ -15,6 +17,7 @@ body {
   width: 100%;
   height: 100%;
   z-index: -1;
+  overflow: hidden;
 }
 
 .star {
@@ -25,32 +28,25 @@ body {
 }
 
 @keyframes twinkle {
-  0%, 100% { opacity: 0.3; }
+  0%, 100% { opacity: 0.2; }
   50% { opacity: 1; }
 }
 
 /* Языки */
 .language-selection {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 8px;
-  padding: 10px;
-  max-width: 100%;
-  box-sizing: border-box;
-  z-index: 1;
+  gap: 12px;
+  padding: 16px;
 }
 
 .language-option img {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
 }
 
 .language-option img:hover {
@@ -59,126 +55,89 @@ body {
 
 /* Поиск */
 .search-container {
-  margin-top: 100px;
-  text-align: center;
-  padding: 10px;
-}
-
-#searchInput {
-  padding: 10px;
-  width: 80%;
-  max-width: 400px;
-  border-radius: 5px;
-  border: none;
-  font-size: 16px;
-}
-
-.games-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start; /* 👈 карточки идут подряд, без распределения */
-  gap: 16px;
-  padding: 20px;
-  box-sizing: border-box;
+  justify-content: center;
+  padding: 0 16px 24px;
 }
 
-/* Карточка игры */
+.search-container input {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+/* Игры */
+.games-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 0 16px 32px;
+}
+
 .game-card {
   background-color: #1a1a1a;
-  border-radius: 10px;
-  padding: 10px;
-  width: calc(50% - 8px);
-  box-sizing: border-box;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  justify-content: flex-start;
-  transition: transform 0.3s ease;
-  min-height: 240px; /* 👈 минимальная высота вместо фиксированной */
-}
-.game-card:hover {
-  transform: scale(1.03);
+  align-items: center;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
 }
 
 .game-card img {
   width: 100%;
-  max-height: 120px; /* 👈 ограничиваем по самой маленькой */
-  object-fit: cover;
   border-radius: 8px;
-  display: block;
-  flex-shrink: 0;
+  margin-bottom: 8px;
 }
 
-.game-card h3 {
-  margin: 8px 0 4px;
+.game-title {
   font-size: 14px;
-  text-align: center;
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: 8px 0;
+  color: #fff;
 }
 
 .play-button {
-  background-color: #00bfff;
-  color: white;
-  padding: 6px 12px;
-  border-radius: 5px;
+  background-color: #ff9800;
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 6px;
   text-decoration: none;
-  font-size: 12px;
   font-weight: bold;
-  white-space: nowrap;
-  align-self: center; /* 👈 центрируем кнопку */
-  margin-top: auto;   /* 👈 прижимаем к низу карточки */
-}
-
-
-.play-button:hover {
-  background-color: #0099cc;
-}
-
-/* Футер */
-.game-footer {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 20px;
-  z-index: 10;
-}
-
-.game-footer button {
-  background-color: #00bfff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 8px;
-  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.game-footer button:hover {
-  background-color: #0099cc;
+.play-button:hover {
+  background-color: #ffa726;
 }
 
-/* 📱 Адаптация под маленькие экраны */
+/* Адаптация под маленькие экраны */
 @media (max-width: 480px) {
-.game-card img {
-  width: 100%;
-  max-height: 120px; /* 👈 ограничиваем высоту */
-  object-fit: cover;
-  border-radius: 12px;
-  display: block;
-}
-
-  .language-option img {
-    width: 28px;
-    height: 28px;
+  .games-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
   }
 
-  .search-container {
-    margin-top: 80px;
+  .language-selection {
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .search-container input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .game-title {
+    font-size: 13px;
+  }
+
+  .play-button {
+    font-size: 13px;
+    padding: 6px 12px;
   }
 }
