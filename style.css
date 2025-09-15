@@ -1,0 +1,169 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  font-family: sans-serif;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Звезды */
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  animation: twinkle 2s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* Языки */
+.language-selection {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px;
+  max-width: 100%;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.language-option img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.language-option img:hover {
+  transform: scale(1.1);
+}
+
+/* Поиск */
+.search-container {
+  margin-top: 100px;
+  text-align: center;
+  padding: 10px;
+}
+
+#searchInput {
+  padding: 10px;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+}
+
+/* Игры */
+.games-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px;
+}
+
+.game-card {
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  padding: 15px;
+  width: calc(50% - 16px); /* ✅ две карточки по ширине */
+  max-width: 250px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.game-card:hover {
+  transform: scale(1.03);
+}
+
+.game-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  object-fit: cover;
+}
+
+.game-card h3 {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.play-button {
+  background-color: #00bfff;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.play-button:hover {
+  background-color: #0099cc;
+}
+
+/* Футер */
+.game-footer {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  z-index: 10;
+}
+
+.game-footer button {
+  background-color: #00bfff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.game-footer button:hover {
+  background-color: #0099cc;
+}
+
+/* 📱 Адаптация под маленькие экраны */
+@media (max-width: 600px) {
+  .game-card {
+    width: calc(50% - 10px); /* две карточки даже на телефоне */
+  }
+
+  .language-option img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .search-container {
+    margin-top: 80px;
+  }
+}
