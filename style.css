@@ -77,17 +77,20 @@ body {
 .games-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between; /* 👈 равномерное распределение */
   gap: 16px;
   padding: 20px;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
+/* Карточка игры */
 .game-card {
   background-color: #1a1a1a;
   border-radius: 10px;
   padding: 15px;
-  width: calc(50% - 16px); /* ✅ две карточки по ширине */
-  max-width: 250px;
+  width: 48%; /* 👈 две карточки по ширине */
+  box-sizing: border-box;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -171,4 +174,3 @@ body {
     margin-top: 80px;
   }
 }
-
