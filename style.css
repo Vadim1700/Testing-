@@ -94,7 +94,7 @@ body {
   align-items: center;
   justify-content: space-between;
   transition: transform 0.3s ease;
-  height: 220px; 
+  height: 240px; /* 👈 фиксированная высота карточки */
 }
 .game-card:hover {
   transform: scale(1.03);
@@ -102,7 +102,7 @@ body {
 
 .game-card img {
   width: 100%;
-  aspect-ratio: 4 / 3; /* 👈 одинаковые пропорции */
+  height: 120px; /* 👈 фиксированная высота изображения */
   object-fit: cover;
   border-radius: 8px;
   display: block;
